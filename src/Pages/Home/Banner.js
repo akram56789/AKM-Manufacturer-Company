@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className="hero h-96 mt-12 text-white rounded-md  bg-[black]">
+        <div className="hero h-96 mt-12 text-black rounded-md  bg-[]">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img src="https://www.cgdirector.com/wp-content/uploads/media/2019/01/Parts_Needed_to_Build_a_PC_Twitter-1200x675-768x432.jpg" className="max-w-sm rounded-lg shadow-2xl" />
           <div>
