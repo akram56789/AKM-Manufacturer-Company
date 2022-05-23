@@ -20,12 +20,16 @@ const Purchase = () => {
 
     const handlePurchasing = event => {
         event.preventDefault();
+    
         console.log(_id, name, quantity, price);
         const purchasing = {
             productId: _id,
+            productPrice: price,
+            productQuantity: quantity,
             product: name,
             clientName: user.displayName,
             client: user.email,
+            
 
         }
 
@@ -40,7 +44,6 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-
                 setProducts(data)
 
             })
