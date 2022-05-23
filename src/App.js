@@ -1,5 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddReview from './Pages/Dashboard/AddReview';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrders from './Pages/Dashboard/MyOrders';
+import MyProfile from './Pages/Dashboard/MyProfile';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
@@ -23,11 +27,16 @@ function App() {
             <Purchase></Purchase>
           </RequireAuth>
         }></Route>
-        {/* <Route path='/product/:productId' element={
-          <RequireAuth>
-            <Product></Product>
-          </RequireAuth>
-        }></Route> */}
+     <Route path='dashboard' element={
+       <RequireAuth>
+            <Dashboard></Dashboard>
+       </RequireAuth>}>
+         <Route path='addreview' element={<AddReview></AddReview>}> </Route>
+         <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
+         <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+
+     </Route>
+   
 
       </Routes>
 

@@ -6,16 +6,52 @@ import auth from '../../firebase.init';
 const Purchase = () => {
     const { productId } = useParams();
     const [products, setProducts] = useState({});
- 
+
+
     const [user] = useAuthState(auth)
 
-    const { img, name, price, description, quantity } = products;
+    let { img, name, price, description, quantity, _id } = products;
     useEffect(() => {
         const url = `http://localhost:5000/product/${productId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [productId])
+
+    const handlePurchasing = event => {
+        event.preventDefault();
+        console.log(_id, name, quantity, price);
+        const purchasing = {
+            productId: _id,
+            product: name,
+            clientName: user.displayName,
+            client: user.email,
+
+        }
+
+
+        fetch('http://localhost:5000/purchasing', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(purchasing)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                setProducts(data)
+
+            })
+
+    };
+
+
+
+
+
+
     return (
         <div className='flex justify-center'>
             <div class="card w-96 glass ">
@@ -28,50 +64,62 @@ const Purchase = () => {
                     <p>{description}</p>
 
                     <div class="card-actions justify-center mt-6 ">
-                        {/* <!-- The button to open modal --> */}
+
                         <label for="my-modal-6" class="btn modal-button">purchase</label>
 
-                        {/* <!-- Put this part before </body> tag --> */}
-                  
 
-                    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-                  
-                    <div class="modal modal-bottom sm:modal-middle">
-                       
-                 
-                        <div class="modal-box">
-                        <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                         <h4>Name</h4>
-                        <input disabled  defaultValue={user.displayName} type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs " />
-                        <h4>Email</h4>
-                        <input disabled defaultValue={user.email}  type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                        <h4>Phone</h4>
-                        <input    type="number" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                        <h4>Product Name</h4>
-                        <input defaultValue={name} type="text" placeholder="product name" class="input input-bordered w-full max-w-xs " />
-                        <h4>Price</h4>
-                        <input defaultValue={price} type="text" placeholder="" class="input input-bordered w-full max-w-xs  " />
-                        <h4>Quantity</h4>
-                        <input defaultValue={quantity} type="text" 
-                        
-                        placeholder="Type here" class="input input-bordered w-full max-w-xs  " /> 
-                        <button 
-                        
-                        className='btn btn-primary ml-2 mt-6'>increase</button>
-                        <button className='btn btn-ascent ml-16'>discrease</button>
-                           
-                            <div class="flex justify-center mt-4">
-                            <button class="btn btn-wide">Purchase now</button>
+
+                        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+
+                        <div class="modal modal-bottom sm:modal-middle">
+
+
+                            <div class="modal-box">
+                                <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                <form onSubmit={handlePurchasing}>
+                                    <h4>Name</h4>
+                                    <input disabled defaultValue={user.displayName} type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs " />
+                                    <h4>Email</h4>
+                                    <input disabled defaultValue={user.email} type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                                    <h4>Phone</h4>
+                                    <input type="number" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                                    <h4>Product Name</h4>
+                                    <input defaultValue={name} type="text" placeholder="product name" class="input input-bordered w-full max-w-xs " />
+                                    <h4>Price</h4>
+                                    <input defaultValue={price} type="text" placeholder="" class="input input-bordered w-full max-w-xs  " />
+                                    <h4>Quantity</h4>
+
+                                    <input
+
+
+                                        defaultValue={quantity} type="text"
+
+
+                                        placeholder="Type here" class="input input-bordered w-full max-w-xs  " />
+
+                                    <input type="submit"
+                                        value='Submit'
+                                        placeholder="Type here"
+                                        className="btn btn-accent text-white font-normal	 input input-bordered w-full max-w-xs" />
+                                </form>
+                                <button
+
+                                    className='btn btn-primary ml-2 mt-6'>increase</button>
+                                <button className='btn btn-ascent ml-16'>discrease</button>
+
+
                             </div>
                         </div>
+
+
                     </div>
 
 
                 </div>
-
             </div>
-        </div>
-        
+
+
+
 
         </div >
     );
