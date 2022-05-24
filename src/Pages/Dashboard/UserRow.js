@@ -1,24 +1,40 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const UserRow = ({ user,refetch }) => {
+import Swal from 'sweetalert2';
+const UserRow = ({ user, refetch }) => {
+
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
     const [users, setUsers] = useState([])
-    const{email , role}=user;
+    
+    const { email, role } = user;
+
+
     const makeAdmin = () => {
-     
 
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
             headers: {
-    
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => {
-                if(res.status === 403){
-                    toast.error('Failed to Make an admin');
+                if (res.status === 403) {
+                    Swal.fire(
+                        'Ops',
+                        'Failed to Make an admin',
+                        'error'
+                    )
                 }
-                return res.json()})
+                return res.json()
+            })
             .then(data => {
                 if (data.modifiedCount > 0) {
                     refetch();
@@ -28,12 +44,13 @@ const UserRow = ({ user,refetch }) => {
             })
 
 
-            
 
-            
+
+
     }
     const handleDelete = _id => {
-        const proceed = window.confirm('Delete tha product !!')
+        const proceed = 
+        window.confirm('Delete tha product !!')
         if (proceed) {
             const url = `http://localhost:5000/user/${email}`
             fetch(url, {
@@ -45,18 +62,18 @@ const UserRow = ({ user,refetch }) => {
                     const remaining = users.filter(u => u.email !== email)
                     setUsers(remaining)
                 })
-  
+
         }
     }
     return (
-            <tr>
-                <th>1</th>
-                <td>{email}</td>
-                <td>{role!== 'admin'&& <button  className='btn btn-xs' onClick={makeAdmin}>Make Admin</button>}</td>
-                <td><button onClick={() => handleDelete(users.email)} className='btn btn-xs'>Remove User</button></td>
-            </tr>
+        <tr>
+            <th>1</th>
+            <td>{email}</td>
+            <td>{role !== 'admin' && <button className='btn btn-xs' onClick={makeAdmin}>Make Admin</button>}</td>
+            <td><button onClick={() => handleDelete(users.email)} className='btn btn-xs'>Remove User</button></td>
+        </tr>
     );
 };
 
 export default UserRow;
- 
+

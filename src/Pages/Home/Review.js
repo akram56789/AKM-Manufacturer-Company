@@ -1,22 +1,23 @@
 import React from 'react';
 
-const Review = ({reviews}) => {
+const Review = ({ reviews }) => {
     const { review, name, picture, retting } = reviews;
     return (
-        <div className="card w-96 bg-primary text-primary-content">
+        <div className="card lg:max-w-lg bg-base-100 shadow-xl">
             <div className="card-body">
-                <p>{review}</p>
                 <div className="avatar">
-                    <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src={picture} alt='' />
+                    <div className="w-24 rounded">
+                        <img src={picture} />
                     </div>
-                    <p className=''>{name}</p>
                 </div>
-                <p>Retting : {retting}</p>
+                <p>{name}</p>
+                <div className="card-actions justify-end">
+                 <p>{review}</p>
+                 <p>{retting}</p>
+                </div>
             </div>
         </div>
     );
 };
 
 export default Review;
- 

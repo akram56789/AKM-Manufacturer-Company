@@ -57,39 +57,39 @@ const Purchase = () => {
 
     return (
         <div className='flex justify-center'>
-            <div class="card w-96 glass ">
+            <div className="card w-96 glass ">
                 <figure><img src={img} alt="car!" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">{name}</h2>
+                <div className="card-body">
+                    <h2 className="card-title">{name}</h2>
                     <h4 className='text-xl'>Price</h4>
                     <p> Per unit: {price}$</p>
                     <p>Available: {quantity}</p>
                     <p>{description}</p>
 
-                    <div class="card-actions justify-center mt-6 ">
+                    <div className="card-actions justify-center mt-6 ">
 
-                        <label for="my-modal-6" class="btn modal-button">purchase</label>
-
-
-
-                        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-
-                        <div class="modal modal-bottom sm:modal-middle">
+                        <label htmlFor="my-modal-6" className="btn modal-button">purchase</label>
 
 
-                            <div class="modal-box">
-                                <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+
+                        <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+
+                        <div className="modal modal-bottom sm:modal-middle">
+
+
+                            <div className="modal-box">
+                                <label htmlFor="my-modal-6" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                 <form onSubmit={handlePurchasing}>
                                     <h4>Name</h4>
-                                    <input disabled defaultValue={user.displayName} type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs " />
+                                    <input disabled defaultValue={user.displayName} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs " />
                                     <h4>Email</h4>
-                                    <input disabled defaultValue={user.email} type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                                    <input disabled defaultValue={user.email} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                                     <h4>Phone</h4>
-                                    <input type="number" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                                    <input type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                                     <h4>Product Name</h4>
-                                    <input defaultValue={name} type="text" placeholder="product name" class="input input-bordered w-full max-w-xs " />
+                                    <input defaultValue={name} type="text" placeholder="product name" className="input input-bordered w-full max-w-xs " />
                                     <h4>Price</h4>
-                                    <input defaultValue={price} type="text" placeholder="" class="input input-bordered w-full max-w-xs  " />
+                                    <input defaultValue={price} type="text" placeholder="" className="input input-bordered w-full max-w-xs  " />
                                     <h4>Quantity</h4>
 
                                     <input
@@ -98,7 +98,7 @@ const Purchase = () => {
                                         defaultValue={quantity} type="text"
 
 
-                                        placeholder="Type here" class="input input-bordered w-full max-w-xs  " />
+                                        placeholder="Type here" className="input input-bordered w-full max-w-xs  " />
 
                                     <input type="submit"
                                         value='Submit'

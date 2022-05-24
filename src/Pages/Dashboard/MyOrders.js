@@ -34,8 +34,8 @@ const MyOrders = () => {
     return (
       <div>
               <h2>My Orders: {orders.length}</h2>
-            <div class="overflow-x-auto">
-        <table class="table">
+            <div className="overflow-x-auto">
+        <table className="table">
           {/* <!-- head --> */}
           <thead>
             <tr>

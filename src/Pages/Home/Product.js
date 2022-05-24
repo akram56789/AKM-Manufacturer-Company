@@ -10,17 +10,17 @@ const Product = ({ product }) => {
 
     }
     return (
-        <div class="card lg:max-w-lg text-white image-full">
+        <div className="card lg:max-w-lg text-white image-full">
             <figure><img src={img} alt="Shoes" /></figure>
-            <div class="card-body">
-                <h2 class="card-title">{name}</h2>
+            <div className="card-body">
+                <h2 className="card-title">{name}</h2>
 
                 <p className='mt-2'>Price: {price}$</p>
                 <p>quantity: {quantity}</p>
                 <p>{description}</p>
 
-                <div class="card-actions ">
-                    <button class="btn btn-primary " 
+                <div className="card-actions ">
+                    <button className="btn btn-primary " 
                     onClick={() => navigateToPurchase(_id)}>Buy Now</button>
                 </div>
             </div>
