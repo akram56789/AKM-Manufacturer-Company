@@ -28,7 +28,7 @@ const Purchase = () => {
             productQuantity: quantity,
             product: name,
             clientName: user.displayName,
-            client: user.email,
+            email: user.email,
             
 
         }

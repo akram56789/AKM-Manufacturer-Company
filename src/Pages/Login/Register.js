@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/UserToken';
 import Loading from '../Shared/Loading';
 
 const Register = () => {
@@ -16,7 +17,8 @@ const Register = () => {
       error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true }) ;
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
+    
+    const [token] = useToken(user || gUser)
     const navigate = useNavigate();
 
     let registerError;
@@ -28,6 +30,10 @@ const Register = () => {
  
     if(error || gError || updateError){
       registerError= <p className="text-red-500 p-2">Already registered</p>
+    }
+    if(user || gUser){
+      console.log(user || gUser);
+      
     }
     const onSubmit = async data => {
      console.log(data)
