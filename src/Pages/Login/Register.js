@@ -3,7 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import useToken from '../../Hooks/UserToken';
+import useToken from '../../Hooks/UseToken';
 import Loading from '../Shared/Loading';
 
 const Register = () => {
@@ -22,6 +22,10 @@ const Register = () => {
     const navigate = useNavigate();
 
     let registerError;
+
+    if(token){
+      navigate('/home')
+    }
   
     if(loading || gLoading || updating){
       return <Loading></Loading>

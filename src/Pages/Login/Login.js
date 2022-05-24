@@ -14,10 +14,18 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const emailRef = useRef('')
+  
+  // const [token] = useToken( user || gUser)
 
 
   let from = location.state?.from?.pathname || '/'
   let signInError;
+
+//   useEffect( () =>{
+//     if (token) {
+//         navigate(from, { replace: true });
+//     }
+// }, [token, from, navigate])
 
   const [
     signInWithEmailAndPassword,
