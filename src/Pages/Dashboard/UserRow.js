@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Swal from 'sweetalert2';
+
+
+
 const UserRow = ({ user, refetch }) => {
 
 
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-      })
+    
     const [users, setUsers] = useState([])
     
     const { email, role } = user;
@@ -25,23 +21,18 @@ const UserRow = ({ user, refetch }) => {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-            .then(res => {
-                if (res.status === 403) {
-                    Swal.fire(
-                        'Ops',
-                        'Failed to Make an admin',
-                        'error'
-                    )
-                }
-                return res.json()
-            })
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    refetch();
-                    toast.success('Successfully made an admin');
-                }
+        .then(res => {
+            if(res.status === 403){
+                toast.error('Failed to Make an admin');
+            }
+            return res.json()})
+        .then(data => {
+            if (data.modifiedCount > 0) {
+                refetch();
+                toast.success(`Successfully made an admin`);
+            }
 
-            })
+        })
 
 
 
