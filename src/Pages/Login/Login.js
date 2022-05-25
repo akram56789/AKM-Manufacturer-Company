@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/UseToken';
 import Loading from '../Shared/Loading';
 
 
@@ -14,25 +15,28 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const emailRef = useRef('')
+
   
-  // const [token] = useToken( user || gUser)
-
-
-  let from = location.state?.from?.pathname || '/'
-  let signInError;
-
-//   useEffect( () =>{
-//     if (token) {
-//         navigate(from, { replace: true });
-//     }
-// }, [token, from, navigate])
-
   const [
     signInWithEmailAndPassword,
     user,
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  
+  
+  const [token] = useToken( user || gUser)
+
+
+  let from = location.state?.from?.pathname || '/'
+  let signInError;
+
+  useEffect( () =>{
+    if (token) {
+        navigate(from, { replace: true });
+    }
+}, [token, from, navigate])
+
 
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(
     auth
