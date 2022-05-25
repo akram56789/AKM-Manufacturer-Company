@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Purchase = () => {
@@ -44,6 +45,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                toast('product added')
                 setProducts(data)
 
             })
@@ -105,11 +107,7 @@ const Purchase = () => {
                                         placeholder="Type here"
                                         className="btn btn-accent text-white font-normal	 input input-bordered w-full max-w-xs" />
                                 </form>
-                                <button
-
-                                    className='btn btn-primary ml-2 mt-6'>increase</button>
-                                <button className='btn btn-ascent ml-16'>discrease</button>
-
+                               
 
                             </div>
                         </div>

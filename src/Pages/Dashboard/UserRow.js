@@ -39,7 +39,7 @@ const UserRow = ({ user, refetch }) => {
 
 
     }
-    const handleDelete = _id => {
+    const handleDelete = () => {
         const proceed = 
         window.confirm('Delete tha product !!')
         if (proceed) {

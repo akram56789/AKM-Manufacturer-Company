@@ -22,11 +22,18 @@ const Dashboard = () => {
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
 
                     <li><Link to="/dashboard/myorders">My Orders</Link></li>
-                    <li><Link to="/dashboard/myprofile">My Profile</Link></li>
                     <li><Link to="/dashboard/addreview">Add Reviews</Link></li>
+                    
+                    <li><Link to="/dashboard/myprofile">My Profile</Link></li>
                   {
                       admin && 
                       <li><Link to="/dashboard/users">All users</Link></li>
+                    
+                  }
+                  {
+                      admin && 
+                      <li><Link to="/dashboard/allorders">All Orders</Link></li>
+                    
                   }
                   
                 </ul>
