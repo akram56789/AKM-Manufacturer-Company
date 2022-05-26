@@ -65,7 +65,9 @@ const AddProduct = () => {
                   <span className="label-text">Description</span>
   
                 </label>
-                <input type="text"   class="input input-bordered input-lg w-full max-w-xs" />
+                <input type="text"   class="input input-bordered input-lg w-full max-w-xs" 
+                  {...register("description")}
+                />
 
   
                 

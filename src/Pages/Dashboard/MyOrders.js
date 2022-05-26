@@ -70,7 +70,7 @@ const MyOrders = () => {
       <div>
               <h2>My Orders: {orders.length}</h2>
             <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table table-compact">
           {/* <!-- head --> */}
           <thead>
             <tr>
