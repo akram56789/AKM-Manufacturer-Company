@@ -24,7 +24,7 @@ const Register = () => {
     let registerError;
 
     if(token){
-      navigate('/home')
+      navigate('/')
     }
   
     if(loading || gLoading || updating){

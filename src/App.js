@@ -6,13 +6,17 @@ import AllOrders from './Pages/Dashboard/AllOrders';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import Payment from './Pages/Dashboard/Payment';
 import Users from './Pages/Dashboard/Users';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
+import RequireAdmin from './Pages/Login/RequierAdmin';
 import RequireAuth from './Pages/Login/RequireAuth';
+import AddProduct from './Pages/Manage/AddProduct';
 import Purchase from './Pages/Purchase/Purchase';
 import Navbar from './Pages/Shared/Navbar';
+import NotFound from './Pages/Shared/NotFound';
 
 
 
@@ -37,12 +41,19 @@ function App() {
        </RequireAuth>}>
          <Route path='addreview' element={<AddReview></AddReview>}> </Route>
          <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
+         <Route path='payment/:id' element={<Payment></Payment>}></Route>
          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
-         <Route path='users' element={<Users></Users>}></Route>
+         <Route path='users' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
          <Route path='allorders' element={<AllOrders></AllOrders>}></Route>
+     
          {/* <Route path='making-admin' element={<MakeAdmin></MakeAdmin>}> </Route> */}
 
      </Route>
+     <Route path='/addproduct' element={
+           <RequireAdmin><AddProduct></AddProduct></RequireAdmin>
+         }></Route>
+
+         <Route path='*' element={<NotFound></NotFound>}></Route>
    
 
       </Routes>

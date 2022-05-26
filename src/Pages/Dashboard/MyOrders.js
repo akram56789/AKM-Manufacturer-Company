@@ -1,7 +1,8 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 
 const MyOrders = () => {
@@ -30,20 +31,39 @@ const MyOrders = () => {
     }, [user])
 
     const handleDelete = _id => {
-      const proceed = window.confirm('Delete tha product !!')
-      if (proceed) {
-          const url = `http://localhost:5000/order/${_id}`
-          fetch(url, {
-              method: "DELETE"
-          })
-              .then(res => res.json())
-              .then(data => {
-                  console.log(data);
-                  const remaining = orders.filter(order => order._id !== _id)
-                  setOrders(remaining)
-              })
+     
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if (result) {
+            const url = `http://localhost:5000/order/${_id}`
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = orders.filter(order => order._id !== _id)
+                    setOrders(remaining)
+                })
+  
+        }
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
 
-      }
+      })
+  
     }
 
     return (
@@ -59,7 +79,7 @@ const MyOrders = () => {
               {/* <th>Email</th> */}
               <th>Product</th>
               <th>Price</th>
-              <th>Quantity</th>
+              <th>Payment</th>
               <td></td>
               <td></td>
             </tr>
@@ -72,9 +92,13 @@ const MyOrders = () => {
              <td>{order.clientName}</td>
              {/* <td>{order.client}</td> */}
              <td>{order.product}</td>
-             <td>{order.productPrice}</td>
+             {/* <td>{order.productPrice}</td> */}
              <td>{order.productQuantity}</td>
-             <td><button className='btn btn-secondary'>Pay</button></td>
+              <td>
+                {(order.productPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-secondary'>Pay</button></Link>}
+                {(order.productPrice && order.paid) && <span className='text-success'>paid</span>}
+                
+                </td>
            <td>  <button onClick={() => handleDelete(order._id)} className='btn btn-warning text-white'>DELETE</button></td>
 
             </tr>

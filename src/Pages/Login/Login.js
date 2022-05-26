@@ -177,7 +177,7 @@ const Login = () => {
 
 
           </form>
-          <p className='text-center'><small>New to Doctors Portal? <Link to='/Register' className='text-secondary ml-2 '>create an account</Link></small> </p>
+          <p className='text-center'><small>New to AKM? <Link to='/Register' className='text-secondary ml-2 '>create an account</Link></small> </p>
           <div className="divider">OR</div>
 
           <button onClick={() => signInWithGoogle()} className="btn btn-outline uppercase">continue with google</button>
