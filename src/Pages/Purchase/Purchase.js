@@ -29,20 +29,16 @@ const Purchase = () => {
     const  handlePurchasing = event => {
          event.preventDefault();
         console.log(_id, name, quantity, price);
-    
-      
-        
-      
-        const purchasing = {
-            productId: _id,
-            productPrice: price,
-            productQuantity: quantity,
-            product: name,
-            clientName: user.displayName,
-            email: user.email,
-            
+              const purchasing = {
+              productId: _id,
+              productPrice: price,
+              productQuantity: quantity,
+              product: name,
+              clientName: user.displayName,
+              email: user.email,
+              
 
-        }
+          }
         fetch('http://localhost:5000/purchasing', {
             method: 'POST',
             headers: {

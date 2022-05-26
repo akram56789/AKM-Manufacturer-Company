@@ -2,12 +2,13 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
 const CheckoutForm = ({ purchasing }) => {
-    const { productPrice, clientName, email} = purchasing;
+    const {_id, productPrice, clientName, email} = purchasing;
 
     const stripe = useStripe()
     const elements = useElements()
     const [cardError, setCardError] = useState('')
     const [success, setSuccess] = useState('')
+    const [processing, setProcessing] = useState(false)
     const [transactionId, setTransactionId] = useState('')
     const [clientSecret, setClientSecret] = useState('')
 
@@ -53,6 +54,7 @@ const CheckoutForm = ({ purchasing }) => {
         })
         setCardError(error?.message || '')
         setSuccess('')
+        setProcessing(true);
 
         // payment confirm 
 
@@ -71,6 +73,7 @@ const CheckoutForm = ({ purchasing }) => {
 
           if(intentError){
               setCardError(intentError?.message)
+              setProcessing(false);
              
           }
           else{
@@ -78,6 +81,25 @@ const CheckoutForm = ({ purchasing }) => {
               setTransactionId(paymentIntent.id)
               console.log(paymentIntent);
               setSuccess('Congo! your payment is success')
+
+               const payment = {
+                   purchasing: _id,
+                   transactionId: paymentIntent.id
+               }
+
+              fetch(`http://localhost:5000/purchasing/${_id}`,{
+                  method: 'PATCH',
+                  headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+
+              }).then(res=> res.json())
+              .then(data=>{
+                  setProcessing(false);
+                  console.log(data);
+              })
           }
     }
     return (
