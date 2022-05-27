@@ -42,7 +42,7 @@ const ManageProducts = () => {
       }
     return (
        
-            <div className='grid grid-cols-1   lg:grid-cols-3 gap-5 mt-28'>
+            <div className='grid grid-cols-1  lg:grid-cols-3 gap-5 mt-28'>
                 {
                     products.map(product =>
                         <div key={product._id}>

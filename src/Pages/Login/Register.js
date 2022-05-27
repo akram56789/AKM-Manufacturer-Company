@@ -9,16 +9,20 @@ import Loading from '../Shared/Loading';
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+   
   
     const [
       createUserWithEmailAndPassword,
       user,
+    
       loading,
       error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true }) ;
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     
     const [token] = useToken(user || gUser)
+    console.log(user, gUser);
     const navigate = useNavigate();
 
     let registerError;
