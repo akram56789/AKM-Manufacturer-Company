@@ -15,6 +15,7 @@ import Register from './Pages/Login/Register';
 import RequireAdmin from './Pages/Login/RequierAdmin';
 import RequireAuth from './Pages/Login/RequireAuth';
 import AddProduct from './Pages/Manage/AddProduct';
+import ManageProducts from './Pages/Manage/ManageProducts';
 import Purchase from './Pages/Purchase/Purchase';
 import Navbar from './Pages/Shared/Navbar';
 import NotFound from './Pages/Shared/NotFound';
@@ -54,6 +55,9 @@ function App() {
      <Route path='/addproduct' element={
            <RequireAdmin><AddProduct></AddProduct></RequireAdmin>
          }></Route>
+         <Route path='/manageproduct' element={<RequireAdmin>
+          <ManageProducts></ManageProducts>
+         </RequireAdmin>}></Route>
 
          <Route path='*' element={<NotFound></NotFound>}></Route>
    

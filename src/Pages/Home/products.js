@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import useManageProducts from '../../Hooks/UseManageProducs';
 import Product from './Product';
 
 const Products = () => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useManageProducts();
 
     useEffect(()=>{
         fetch('http://localhost:5000/product')
