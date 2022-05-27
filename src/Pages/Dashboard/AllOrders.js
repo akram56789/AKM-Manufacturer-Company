@@ -7,7 +7,7 @@ const AllOrders = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/purchasing')
+        fetch('https://sheltered-meadow-75931.herokuapp.com/purchasing')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -28,7 +28,7 @@ const AllOrders = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 if (result) {
-                    const url = `http://localhost:5000/product/${_id}`
+                    const url = `https://sheltered-meadow-75931.herokuapp.com/product/${_id}`
                     fetch(url, {
                         method: "DELETE"
                     })

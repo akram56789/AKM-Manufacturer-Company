@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L3c7sCXchEbHwYXs8xtaWEwAYBQQt24lO3Pw
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/purchasing/${id}`;
+    const url = `https://sheltered-meadow-75931.herokuapp.com/purchasing/${id}`;
 
     const { data: purchasing, isLoading } = useQuery(['purchasing', id], () => fetch(url, {
         method: 'GET',

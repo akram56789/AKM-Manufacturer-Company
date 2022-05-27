@@ -18,7 +18,7 @@ const ManageProducts = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             if (result) {
-              const url = `http://localhost:5000/product/${_id}`
+              const url = `https://sheltered-meadow-75931.herokuapp.com/product/${_id}`
               fetch(url, {
                   method: "DELETE"
               })

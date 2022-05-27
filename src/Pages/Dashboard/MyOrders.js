@@ -14,7 +14,7 @@ const MyOrders = () => {
     useEffect(() => {
       if(user)
        {
-        fetch(`http://localhost:5000/myorders?email=${user.email}`,{
+        fetch(`https://sheltered-meadow-75931.herokuapp.com/myorders?email=${user.email}`,{
           method: 'GET',
           headers: {
               'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -44,7 +44,7 @@ const MyOrders = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           if (result) {
-            const url = `http://localhost:5000/order/${_id}`
+            const url = `https://sheltered-meadow-75931.herokuapp.com/order/${_id}`
             fetch(url, {
                 method: "DELETE"
             })

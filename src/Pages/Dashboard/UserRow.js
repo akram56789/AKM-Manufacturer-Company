@@ -20,7 +20,7 @@ const UserRow = ({ user, refetch }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 if (result) {
-                    fetch(`http://localhost:5000/user/admin/${email}`, {
+                    fetch(`https://sheltered-meadow-75931.herokuapp.com/user/admin/${email}`, {
                         method: 'PUT',
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -65,7 +65,7 @@ const UserRow = ({ user, refetch }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 if (result) {
-                    const url = `http://localhost:5000/user/${email}`
+                    const url = `https://sheltered-meadow-75931.herokuapp.com/user/${email}`
                     fetch(url, {
                         method: "DELETE"
                     })

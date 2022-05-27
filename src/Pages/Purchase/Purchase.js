@@ -18,7 +18,7 @@ const Purchase = () => {
     let { img, name, price, description, quantity, _id } = products;
     useEffect(() => {
        
-        const url = `http://localhost:5000/product/${productId}`
+        const url = `https://sheltered-meadow-75931.herokuapp.com/product/${productId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data))
@@ -39,7 +39,7 @@ const Purchase = () => {
               
 
           }
-        fetch('http://localhost:5000/purchasing', {
+        fetch('https://sheltered-meadow-75931.herokuapp.com/purchasing', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
