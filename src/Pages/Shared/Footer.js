@@ -4,7 +4,7 @@ const Footer = () => {
     const today = new Date();
     const year = today.getFullYear();
     return (
-        <footer className="  p-10 bg-cover  text-accent">
+        <footer className="  p-10 bg-cover   text-accent">
             <div className='footer  ml-10'>
                 <div>
                     <span className="footer-title">Services</span>
