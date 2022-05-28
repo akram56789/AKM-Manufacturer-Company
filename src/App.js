@@ -25,7 +25,7 @@ import NotFound from './Pages/Shared/NotFound';
 
 function App() {
   return (
-    <div className="max-w-7xl  mx-auto">
+    <div className="max-w-7xl px-12 mx-auto ">
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
