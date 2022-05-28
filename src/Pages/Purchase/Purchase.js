@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
@@ -11,6 +11,7 @@ const Purchase = () => {
     // const [inputQuantity, setInputQuantity] = useState();
     // const [minimumOrder, setMinimumOrder ] = useState();
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate()
 
 
     const [user] = useAuthState(auth)
@@ -49,6 +50,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                navigate('/dashboard/myorders')
                 toast('product added')
                 setProducts(data)
                
