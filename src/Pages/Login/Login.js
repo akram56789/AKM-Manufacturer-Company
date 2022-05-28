@@ -145,7 +145,7 @@ const Login = () => {
               </label>
               <input
                 type="password"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered  w-full max-w-xs"
                 {...register("password", {
                   required: {
                     value: true,
@@ -180,7 +180,9 @@ const Login = () => {
           <p className='text-center'><small>New to AKM? <Link to='/Register' className='text-secondary ml-2 '>create an account</Link></small> </p>
           <div className="divider">OR</div>
 
-          <button onClick={() => signInWithGoogle()} className="btn btn-outline uppercase">continue with google</button>
+          <button onClick={() => signInWithGoogle()} className="btn btn-outline uppercase">continue with 
+          <img className='h-7 ml-2' src="https://img.icons8.com/nolan/344/google-logo.png" alt=""  /> 
+          </button>
 
 
 

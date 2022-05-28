@@ -10,6 +10,7 @@ import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
 import Users from './Pages/Dashboard/Users';
 import Home from './Pages/Home/Home';
+import MyPortfolio from './Pages/Home/MyPortfolio';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
 import RequireAdmin from './Pages/Login/RequierAdmin';
@@ -30,6 +31,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/myporfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
 

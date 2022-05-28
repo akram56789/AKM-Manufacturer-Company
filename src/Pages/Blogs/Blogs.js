@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div>
+        <div className='mt-12'>
             <div>
                 <h1>1</h1>
                <h2>   How will you improve the performance of a React Application</h2>
@@ -26,7 +26,7 @@ const Blogs = () => {
             <div>
                 <h1>4</h1>
                 <h2> You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h2>
-                <p>by user filter</p>
+                <p>by using filter</p>
             </div>
         </div>
     );

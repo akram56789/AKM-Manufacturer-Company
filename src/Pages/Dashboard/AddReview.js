@@ -41,7 +41,7 @@ const AddReviews = () => {
                     <textarea className="textarea textarea-bordered" name='comments' placeholder="Write Your Comments"></textarea>
                     <input type="text" name='retting' placeholder="Ratting" className="input input-bordered w-full max-w-xs" />
                     <input type="text" name='picture' placeholder="image url" className="input input-bordered w-full max-w-xs" />
-                    <button className="btn btn-ghost  btn-outline">Button</button>
+                    <button className="btn btn-ghost  btn-outline">add</button>
                 </form>
 
             </div>

@@ -143,7 +143,9 @@ const Register = () => {
           <p className='text-center'><small>Already have a account? <Link to='/login' className='text-secondary ml-2 '>please login</Link></small> </p>
             <div className="divider">OR</div>
   
-            <button onClick={() => signInWithGoogle()} className="btn btn-outline uppercase">continue with google</button>
+            <button onClick={() => signInWithGoogle()} className="btn btn-outline uppercase">continue with 
+            <img className='h-6 ml-2' src="https://img.icons8.com/nolan/344/google-logo.png" alt="" />
+            </button>
   
   
   
