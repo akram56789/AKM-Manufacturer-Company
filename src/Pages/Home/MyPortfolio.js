@@ -2,10 +2,10 @@ import React from 'react';
 
 const MyPortfolio = () => {
     return (
-   <section className="flex h-1/2  justify-center mt-12 text-white rounded-lg  bg-[url('/src/Images/img3.jpg')]">
-        <div className=" ">
-            <div class="card w-96 glass ">
-        <figure><img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="car!"/></figure>
+   <section className="flex justify-center mt-12 lg:text-white rounded-lg  lg:bg-[url('/src/Images/img5.jpg')]">
+        <div className="  ">
+            <div class="card w-96  glass ">
+        <figure><img className='' src="https://images.unsplash.com/photo-1514543250559-83867827ecce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=825&q=80" alt="car!"/></figure>
         <div class="card-body">
           <h2 class="card-title">Name: Akram Hossain</h2>
           <p>Email: akramhossain56789@gmail.com</p>

@@ -15,36 +15,47 @@ const Navbar = () => {
     };
 
     const menuItems = <>
-        <li className=''><Link to="/">Home</Link></li>
-        <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/myporfolio">My Portfolio</Link></li>
+        <li className=''><Link to="/">
+            <img className='h-5' src="https://img.icons8.com/ios/452/home--v1.png" alt="" />
+            Home</Link></li>
+
+        <li><Link to="/myporfolio">
+            <img className='h-5' src="https://img.icons8.com/ios/344/user--v1.png" alt="" />
+            My Portfolio</Link></li>
+        <li><Link to="/blogs">
+            <img className='h-6' src="https://img.icons8.com/external-others-made-by-made/344/external-blog-blogger-others-made-by-made.png" alt="" />
+            Blogs</Link></li>
 
 
 
 
-       {
-           !admin &&  <li><Link to="#review">Review</Link></li>
-       }
 
-        <li><Link to="/about">About</Link></li>
+
+
 
 
         {
-            admin && <li><Link to="/addproduct">Add Product</Link></li>
+            admin && <li><Link to="/addproduct">
+                <img className='h-5' src="https://img.icons8.com/ios/344/add--v1.png" alt="" />
+                Add Product</Link></li>
 
         }
         {
-            admin && <li><Link to="/manageproduct">Mange Product</Link></li>
+            admin && <li><Link to="/manageproduct">
+                <img className='h-5' src="https://img.icons8.com/dotty/452/maintenance.png" alt="" />
+                Mange Product</Link></li>
 
         }
         {
-            user && <li><Link to="/dashboard">Dashboard</Link></li>
+            user && <li className=''><Link to="/dashboard">
+                <img className='h-5 ' src="https://img.icons8.com/external-sbts2018-mixed-sbts2018/344/external-11-dashboard-finance-2-sbts2018-mixed-sbts2018.png" alt="" />
+                Dashboard</Link></li>
         }
 
 
 
 
-        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+        <li className=' bg-slate-700 text-white rounded-xl'>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
 
     </>
     return (
@@ -58,7 +69,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">AKM</a>
+                <a className="btn btn-ghost normal-case text-3xl">AKM</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -69,10 +80,10 @@ const Navbar = () => {
                 {/* <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label> */}
-                <label    htmlFor="dashboard-sidebar" class="btn btn-circle swap swap-rotate ">
+                <label htmlFor="dashboard-sidebar" class="btn btn-circle swap swap-rotate ">
 
                     {/* <!-- this hidden checkbox controls the state --> */}
-                    <input  type="checkbox" />
+                    <input type="checkbox" />
 
                     {/* <!-- hamburger icon --> */}
                     <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="30" height="26" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" /></svg>
