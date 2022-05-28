@@ -55,7 +55,7 @@ const Navbar = () => {
 
 
 
-        <li className=' bg-slate-700 text-white rounded-xl'>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+        <li className=' bg-slate-700 text-white rounded-xl font-bold uppercase'>{user ? <button className="btn btn-ghost" onClick={logout} ><img className='h-5' src="https://img.icons8.com/fluency/344/login-rounded.png" alt="" /> Sign Out</button> : <Link to="/login"><img className='h-5' src="https://img.icons8.com/fluency/344/logout-rounded.png" alt="" /> Login</Link>}</li>
 
     </>
     return (
