@@ -20,7 +20,7 @@ const Product = ({ product }) => {
                 <p>{description}</p>
 
                 <div className="card-actions ">
-                    <button className="btn btn " 
+                    <button className="btn  " 
                     onClick={() => navigateToPurchase(_id)}>Buy Now</button>
                 </div>
             </div>

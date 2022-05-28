@@ -85,6 +85,20 @@ const Purchase = () => {
             <form  onSubmit={handlePurchasing}>
             <div className="  w-full max-w-xs">
                 <label className="label">
+                  <span className="label-text">Client Name</span>
+  
+                </label>
+                <input
+                defaultValue={user.displayName}
+                  type="text"
+                  className="input input-bordered w-full max-w-xs"
+                  {...register("clientName")}
+                />
+  
+                
+              </div>
+            <div className="  w-full max-w-xs">
+                <label className="label">
                   <span className="label-text">Product name</span>
   
                 </label>

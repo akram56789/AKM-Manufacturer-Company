@@ -27,6 +27,16 @@ const Blogs = () => {
                 <h1>4</h1>
                 <h2> You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h2>
                 <p>by using filter</p>
+
+            </div>
+            <div>
+                <h1>5</h1>
+                <h2>Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts</h2>
+
+                <p>the think is useState gives us tow things 1. data and 2. set The data  
+                    that's why we diclare useState like this 
+                    const [product, setProduct] = useState()
+                </p>
             </div>
         </div>
     );
